@@ -3,14 +3,18 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'ReactionButton/index.html')
+    contents = {'users' : [
+        {'name' : '杉野森', 'userid' : 1},
+        {'name' : '前川', 'userid' : 2},
+    ]}
+    return render(request, 'ReactionButton/index.html', contents)
 
 def view_reactionbutton(request):
     if "userid" in request.GET:
         userid = int(request.GET["userid"])
         if userid == 1:
             contents = {'name' : '杉野森'}
-        if userid == 2:
+        elif userid == 2:
             contents = {'name' : '前川'}
         contents["userid"] = request.GET["userid"]
     else:
