@@ -1,0 +1,8 @@
+__pychache__/
+__pychache__
+staticfiles
+db.sqlite3
+*.py[co]
+**/.sass-cache
+**/.sass-cache/*
+*.org
