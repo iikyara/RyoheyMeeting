@@ -10,3 +10,6 @@ DATABASES = {
 }
 
 DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-3%=7fx1ibgdh!!oakp1!3lrk^-kb9#aason4#^4^+kgc!eh#ud'
