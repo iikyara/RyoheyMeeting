@@ -1,0 +1,29 @@
+{% extends 'ReactionButton/base.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block head_extends %}
+<link rel="stylesheet" href="{% sass_src 'ReactionButton/scss/layout.scss' %}">
+{% endblock %}
+{% block body %}
+<div class="cp_cont">
+  <div class="cp_offcm01">
+    <input type="checkbox" id="cp_toggle01">
+    <label for="cp_toggle01"><span></span></label>
+    <menu>
+      <ul>
+        <li> <a href="#">ユーザー設定</a> </li>
+      </ul>
+    </menu>
+  </div>
+  <div class="cp_contents">
+    {% block content %}
+    {% endblock %}
+    <div class="footspace"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_extends %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'ReactionButton/js/layout.js' %}"></script>
+{% endblock %}

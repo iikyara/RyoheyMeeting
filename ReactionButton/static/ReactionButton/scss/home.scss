@@ -1,0 +1,8 @@
+@import "./ColorManager.scss";
+@import './FontManager.scss';
+
+h1{
+  margin:{
+    bottom: fontSizes(base);
+  }
+}

@@ -30,3 +30,6 @@ def push_reaction(request):
         info['userid'] = request.GET['userid']
     print(info)
     return HttpResponse(status=201)
+
+def test_scss(request):
+    return render(request, 'ReactionButton/home.html')
