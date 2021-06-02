@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path('', include('ReactionButton.urls')),
     path('admin/', admin.site.urls),
     path('ReactionButton/', include('ReactionButton.urls')),
 ]
