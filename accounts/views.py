@@ -8,9 +8,9 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            #フォームから'username'を読み取る
+            #フォームから'username'を読み取る．
             username = form.cleaned_data.get('username')
-            #フォームから'password1'を読み取る
+            #フォームから'password1'を読み取る．
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
