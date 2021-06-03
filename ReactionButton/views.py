@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def index(request):
     contents = {'users' : [
         {'name' : '杉野森', 'userid' : 1},
@@ -9,6 +10,7 @@ def index(request):
     ]}
     return render(request, 'ReactionButton/index.html', contents)
 
+@login_required
 def view_reactionbutton(request):
     if "userid" in request.GET:
         userid = int(request.GET["userid"])
@@ -22,6 +24,7 @@ def view_reactionbutton(request):
         return HttpResponse(status=201)
     return render(request, 'ReactionButton/ReactionButton.html', contents)
 
+@login_required
 def push_reaction(request):
     info = {}
     if "reaction" in request.GET:
@@ -31,5 +34,6 @@ def push_reaction(request):
     print(info)
     return HttpResponse(status=201)
 
+@login_required
 def test_scss(request):
     return render(request, 'ReactionButton/home.html')
