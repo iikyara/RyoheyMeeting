@@ -6,6 +6,8 @@
 <body>
 <h1>遼平会トップページ！</h1>
 
+<a href="{% url 'logout' %}">ログアウト</a> <br>
+
 {% for user in users %} <!-- この行は変えない -->
 {{user.name}}：
 <a href="/ReactionButton/ReactionButton?userid={{user.userid}}"> <!-- この行は変えない -->
