@@ -148,6 +148,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# sass and scss settings
+# How to use scss fils in heroku.
+# 1. setting for using scss to settings.py
+# 2. write scss code
+# 3. compile all scss files in local environment
+# 4. push and deploy include compiled scss files
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.(sass|scss)$'
 SASS_PRECISION = 8
@@ -177,6 +184,8 @@ except ImportError:
     import dj_database_url
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     django_heroku.settings(locals())
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
     db_from_env = dj_database_url.config()
     DATABASES = {
         'default' : dj_database_url.config()
