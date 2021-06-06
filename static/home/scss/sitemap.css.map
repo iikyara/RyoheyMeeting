@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "sitemap.css",
+	"sources": [
+		"sitemap.scss",
+		"utils.scss",
+		"ColorManager.scss",
+		"FontManager.scss"
+	],
+	"names": [],
+	"mappings": "ACGA,AAAA,WAAW,AAAA,CACT,MAAM,CAAE,GAAG,CAAC,KAAK,CCFC,OAAO,CDGzB,MAAM,CAAE,GAAG,CACZ"
+}

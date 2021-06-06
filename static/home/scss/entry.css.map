@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "entry.css",
+	"sources": [
+		"entry.scss",
+		"utils.scss",
+		"ColorManager.scss",
+		"FontManager.scss"
+	],
+	"names": [],
+	"mappings": "ACGA,AAAA,WAAW,AAAA,CACT,MAAM,CAAE,GAAG,CAAC,KAAK,CCFC,OAAO,CDGzB,MAAM,CAAE,GAAG,CACZ,ADJD,AAAA,YAAY,AAAA,CACV,OAAO,CAAE,IAAI,CAId,AALD,AAEE,YAFU,AAET,eAAe,AAAA,CACd,OAAO,CAAE,MAAM,CAChB,AAGH,AAAA,gBAAgB,AAAA,CACd,OAAO,CAAE,IAAI,CAId,AALD,AAEE,gBAFc,AAEb,eAAe,AAAA,CACd,OAAO,CAAE,MAAM,CAChB"
+}

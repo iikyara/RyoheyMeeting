@@ -1,0 +1,7 @@
+@import "./ColorManager.scss";
+@import './FontManager.scss';
+
+.border-box{
+  border: 1px solid palettes(base);
+  margin: 5px;
+}

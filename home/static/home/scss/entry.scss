@@ -1,0 +1,15 @@
+@import './utils.scss';
+
+#participate{
+  display: none;
+  &.active_section{
+    display: inline;
+  }
+}
+
+#not_participate{
+  display: none;
+  &.active_section{
+    display: inline;
+  }
+}

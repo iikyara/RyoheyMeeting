@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "ReactionResult.css",
+	"sources": [
+		"ReactionResult.scss",
+		"../../../../home/static/home/scss/utils.scss",
+		"../../../../home/static/home/scss/ColorManager.scss",
+		"../../../../home/static/home/scss/FontManager.scss"
+	],
+	"names": [],
+	"mappings": "ACGA,AAAA,WAAW,AAAA,CACT,MAAM,CAAE,GAAG,CAAC,KAAK,CCFC,OAAO,CDGzB,MAAM,CAAE,GAAG,CACZ"
+}

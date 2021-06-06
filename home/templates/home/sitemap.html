@@ -1,0 +1,23 @@
+{% extends 'home/layout.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block head_extends %}
+{{block.super}}
+  <link rel="stylesheet" href="{% sass_src 'home/scss/sitemap.scss' %}">
+{% endblock %}
+{% block title %}サイトマップ{% endblock %}
+{% block content %}
+{{block.super}}
+<div class="contents">
+  <div class="border-box">
+    <a href="{% url 'sitemap' %}">サイトマップへ移動</a> <br>
+    <a href="{% url 'conferencelist' %}">会議リストへ移動</a> <br>
+    <a href="{% url 'usersetting' %}">ユーザ設定へ移動</a> <br>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_extends %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'home/js/sitemap.js' %}"></script>
+{% endblock %}
