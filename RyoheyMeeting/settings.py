@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sass_processor',
     'social_django',
 
+    'home',
     'ReactionButton',
     'accounts',
 ]

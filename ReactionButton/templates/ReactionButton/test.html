@@ -1,0 +1,24 @@
+{% extends 'home/layout.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block head_extends %}
+{{block.super}}
+  <link rel="stylesheet" href="{% sass_src 'ReactionButton/scss/test.scss' %}">
+{% endblock %}
+{% block title %}サイトマップ{% endblock %}
+{% block content %}
+{{block.super}}
+<div class="contents">
+  <div class="border-box">
+    いいねリアクションを送る． <button type="button" onclick="sendReaction(0);">いいね！</button> <br>
+    ちょっとまてリアクションを送る． <button type="button" onclick="sendReaction(1);">ちょっとまて！</button> <br>
+    サイコパス系リアクションを送る． <button type="button" onclick="sendReaction(2);">サイコパス系</button>
+  </div>
+</div>
+<input type="hidden" value="{{userid}}" id="userid">
+{% endblock %}
+
+{% block js_extends %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'ReactionButton/js/func.js' %}"></script>
+{% endblock %}

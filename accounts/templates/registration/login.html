@@ -1,11 +1,11 @@
-{% extends 'ReactionButton/base.html' %}
+{% extends 'home/base.html' %}
 
 {% load sass_tags %}
 {% load static %}
 
 {% block head_extends %}
 {{block.super}}
-<link rel="stylesheet" href="{% sass_src 'ReactionButton/scss/signinup.scss' %}">
+<link rel="stylesheet" href="{% sass_src 'registration/scss/signinup.scss' %}">
 {% endblock %}
 
 {% block title %}ログイン{% endblock%}

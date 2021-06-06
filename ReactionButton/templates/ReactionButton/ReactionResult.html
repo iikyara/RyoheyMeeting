@@ -1,0 +1,27 @@
+{% extends 'home/layout.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block head_extends %}
+{{block.super}}
+  <link rel="stylesheet" href="{% sass_src 'ReactionButton/scss/ReactionResult.scss' %}">
+{% endblock %}
+{% block title %}サイトマップ{% endblock %}
+{% block content %}
+{{block.super}}
+<div class="contents">
+  <div class="border-box">
+    {% for r in reactions %}
+      {{r.presenter.user}} <br>
+      {% for reaction in r.reactions %}
+        {{reaction}} <br>
+      {% endfor %}
+    {{r.reaction}} <br>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block js_extends %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'ReactionButton/js/ReactionResult.js' %}"></script>
+{% endblock %}

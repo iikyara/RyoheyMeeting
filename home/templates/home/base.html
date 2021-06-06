@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% sass_src 'ReactionButton/scss/base.scss' %}">
+    <link rel="stylesheet" href="{% sass_src 'home/scss/base.scss' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     {% block head_extends %}{% endblock %}
-    <title>{% block title %}Base Layout{% endblock %} - カキカタ先生</title>
+    <title>{% block title %}Base Layout{% endblock %} - 遼平会</title>
   </head>
   <body>
     {% block body %}
@@ -26,8 +26,8 @@
     </div>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="{% static 'ReactionButton/js/utils.js' %}"></script>
-    <script type="text/javascript" src="{% static 'ReactionButton/js/base.js' %}"></script>
+    <script type="text/javascript" src="{% static 'home/js/utils.js' %}"></script>
+    <script type="text/javascript" src="{% static 'home/js/base.js' %}"></script>
     {% block js_extends %}{% endblock %}
   </body>
 </html>

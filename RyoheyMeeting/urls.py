@@ -21,7 +21,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     # home
-    path('', include('ReactionButton.urls')),
+    path('', include('home.urls')),
 
     # deal to projects
     path('ReactionButton/', include('ReactionButton.urls')),
