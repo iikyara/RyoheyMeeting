@@ -1,257 +1,48 @@
-{% load static %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title>リアクションボタンのページ</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2022.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Mincho ProN'; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px Times; font-kerning: none}
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>遼平会リアクションボタン</title>
+  <meta name="description" content="リアクションボタンのページ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!-- [if lt IE 9] -->
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <!-- [endif] -->
+  <script src="main.js"></script>
+ </head>
 
-    /* ここはメニューには直接関係ない基本スタイル */
-    body {
-    background: #fff;
-    color: #333;
-    font-family: sans-serif;
-    font-size: small;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    }
-
-    a {
-    color: #22aacc;
-    text-decoration: underline;
-    }
-
-    a:visited {
-    color: #009999;
-    }
-
-    a:hover,
-    a:active {
-    color: #ff3366;
-    text-decoration: underline;
-    }
-
-    .siteTitle {
-    background: #000;
-    font-size: 1em;
-    height: 50px;
-    margin: 0;
-    overflow: hidden;
-    padding: 10px;
-    text-align: center;
-    }
-
-    .backEntry {
-    background: #eee;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin: 1em auto;
-    padding: 2px 0;
-    text-align: center;
-    width: 15em;
-    }
-
-    .backEntry a {
-    display: block;
-    }
-
-    article {
-    padding: 0 1em 50px;
-    }
-
-    h1 {
-    font-size: 1em;
-    }
-
-    .entry-title {
-    font-size: 1.2em;
-    }
-
-    .sample {
-    border: 1px solid #ddd;
-    margin: 0 auto 30px;
-    padding: 20px;
-    width: 300px;
-    }
-
-    .sample form {
-    margin-bottom: 50px;
-    text-align: center;
-    }
-
-    /* ↓ここからへぇボタン関連のスタイル↓ */
-
-    .sample #hee {
-    height: 300px;
-    margin: 0;
-    padding: 0;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    width: 300px;
-    }
-
-    .sample #renge {
-    background: url(img/renge_back_light.png) no-repeat center bottom;
-    height: 300px;
-    margin: 0;
-    padding: 0;
-    }
-
-    .sample #renge p {
-    background: url(img/renge_back.png) no-repeat center bottom;
-    height: 300px;
-    margin: 0;
-    padding: 0;
-    }
-
-    .sample label {
-    display: block;
-    padding-top: 50px;
-    }
-
-    /* へぇ数ごとの設定 */
-    .sample #renge.hee0 {
-    background-position: center 300px;
-    }
-
-    .sample #renge.hee1 {
-    background-position: center 285px;
-    }
-
-    .sample #renge.hee2 {
-    background-position: center 270px;
-    }
-
-    .sample #renge.hee3 {
-    background-position: center 255px;
-    }
-
-    .sample #renge.hee4 {
-    background-position: center 240px;
-    }
-
-    .sample #renge.hee5 {
-    background-position: center 225px;
-    }
-
-    .sample #renge.hee6 {
-    background-position: center 210px;
-    }
-
-    .sample #renge.hee7 {
-    background-position: center 195px;
-    }
-
-    .sample #renge.hee8 {
-    background-position: center 180px;
-    }
-
-    .sample #renge.hee9 {
-    background-position: center 165px;
-    }
-
-    .sample #renge.hee10 {
-    background-position: center 150px;
-    }
-
-    .sample #renge.hee11 {
-    background-position: center 135px;
-    }
-
-    .sample #renge.hee12 {
-    background-position: center 120px;
-    }
-
-    .sample #renge.hee13 {
-    background-position: center 105px;
-    }
-
-    .sample #renge.hee14 {
-    background-position: center 90px;
-    }
-
-    .sample #renge.hee15 {
-    background-position: center 75px;
-    }
-
-    .sample #renge.hee16 {
-    background-position: center 60px;
-    }
-
-    .sample #renge.hee17 {
-    background-position: center 45px;
-    }
-
-    .sample #renge.hee18 {
-    background-position: center 30px;
-    }
-
-    .sample #renge.hee19 {
-    background-position: center 15px;
-    }
-
-    .sample #renge.hee20 {
-    background-position: center bottom;
-    }
-  </style>
-
-<!-- jQueryの読み込み -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-
-<script>
-// へぇボタンを押す度の処理
-$(function(){
-  // 最初にゲージを0にして、音声ファイルを読み込み
-  $("#renge").addClass("hee0");
-  var audio = $("#heeAudio")[0];
-  // へぇボタンクリックごとの処理
-  $("label").click(function () {
-    // 押す度に range の value を 1ずつ増加させる
-    num = parseInt($("#hee").val());
-    add = 1;
-    $("#hee").val(num + add);
-    // 音声の再生
-    audio.load();
-    audio.play();
-    // class の付与
-    numC = $("#hee").val();
-    cls = "hee" + numC;
-    $("#renge").removeClass().addClass(cls);
-  });
-});
-</script>
-
-<!-- ↓ここからサンプル↓ -->
-<div class="sample">
-
-  <!-- ↓へぇボタンの HTML↓ -->
-  <form>
-  <div id="renge">
-  <p><input type="range" name="hee" id="hee" min="0" max="20" value="0" /></p>
-  </div>
-  <label for="hee"><img src="{% static 'ReactionButton/img/kid_job_girl_oyomesan.png' %}" width="100" height="150" alt="へぇ" /></label>
-  </form>
-  <!-- ↑へぇボタンの HTML↑ -->
-
-  <div class="audio">
-  <audio src="{% static 'ReactionButton/audio/seikaiichiSE.wav' %}" id="heeAudio" controls="controls"><p>audio 要素に対応したブラウザでは「へぇ」の音声ファイルの再生が可能です。</p></audio>
+ <body>
+  <div class="main">
+    <h1>最高の遼平会へ<span>.</span></h1>
+    <h2>リアクションボタンページへようこそ</h2>
   </div>
 
-  </div>
-  <!-- ↑ここまでサンプル↑ fugafugaa-->
+  <div class="contents">
+    <h3 class="section-title">選べるリアクション</h3>
+    <!-- スタンプを並べる -->
+    <div class="contents-item1">
+      <img src="/ReactionButton/static/ReactionButton/img/B_Pon_Uso.png" width="100" height="100">
+    </div>
+    <div class="contents-item1">
+      <img src="/ReactionButton/static/ReactionButton/img/R_Kantaro_Sekaiichi.png" width="100" height="100">
+    </div>
+    <div class="contents-item1">
+      <img src="/ReactionButton/static/ReactionButton/img/Y_Keisuke_collvoTteKakkoii.png" width="100" height="100">
+    </div>
+    <p></p>
+    <div class="contents-item2">
+      <img src="/ReactionButton/static/ReactionButton/img/B_Ryohey_chottomatte.png" width="100" height="100">
+    </div>
+    <div class="contents-item2">
+      <img src="/ReactionButton/static/ReactionButton/img/R_Pon_OmaehaSaikounoTomodachiya.png" width=100" height="100">
+    </div>
+    <div class="contents-item2">
+      <img src="/ReactionButton/static/ReactionButton/img/Y_Satoshi_Okarechau.png" width="100" height="100">
+    </div>
 
-</head>
-<body>
-<p class="p1"><span class="s1">リアクションボタン！</span><span class="s2"> </span><span class="s1">名前：</span><span class="s2">{{name}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">hugahuga</span></p>
-<input type="hidden" value="{{userid}}">
-</body>
+
+  </div>
+ </body>
 </html>
