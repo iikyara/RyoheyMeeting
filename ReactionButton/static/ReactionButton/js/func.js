@@ -24,7 +24,7 @@ chatSocket.onclose = function(e) {
 };
 
 //10回ごとにリアクションボタンを押した回数を送る．
-function sendReaction(reaction_number){
+function sendReaction(reaction_number, file_name){
   reaction_counter[reaction_number] += 1;
   if(reaction_counter[reaction_number] >= 10){
     _sendReaction(reaction_number);
@@ -32,7 +32,10 @@ function sendReaction(reaction_number){
   }
 
   //リアルタイムリアクション閲覧システムにリアクションを送信
-  const message = "reaction:" + reaction_number + ", userid: " + document.getElementById('userid').value;
+  const message = {
+    "reaction" : file_name,
+    "userid" : document.getElementById('userid').value
+  };
   chatSocket.send(JSON.stringify({
       'message': message
   }));
