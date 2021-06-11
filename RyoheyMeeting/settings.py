@@ -40,9 +40,11 @@ INSTALLED_APPS = [
 
     'sass_processor',
     'social_django',
+    'channels',
 
     'home',
     'ReactionButton',
+    'ReactionSocket',
     'accounts',
 ]
 
@@ -84,7 +86,25 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'RyoheyMeeting.wsgi.application'
+# for websocket
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            #"hosts": [('localhost', 6379)],
+            "hosts" : [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        },
+        # "BACKEND": "asgi_redis.RedisChannelLayer",
+        # "CONFIG": {
+        #     "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        # },
+        # "ROUTING": "ReactionSocket.routing.websocket_urlpatterns",
+    },
+}
+
+ASGI_APPLICATION = "RyoheyMeeting.asgi.application"
+
+#WSGI_APPLICATION = 'RyoheyMeeting.wsgi.application'
 
 
 # Database
