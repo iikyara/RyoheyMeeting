@@ -16,31 +16,45 @@
 
  <body>
   <div class="main">
-    <h1>最高の遼平会へ<span>.</span></h1>
-    <h2>リアクションボタンページへようこそ</h2>
+    <h1>リアクションボタン</h1>
   </div>
 
   <div class="contents">
-    <h3 class="section-title">選べるリアクション</h3>
+    <h3 class="section-title">選べるリアクション14種類！</h3>
+    <h5><span class="blue">青</span>=ちょいまち　<span class="red">赤</span>＝いいね　<span class="yellow">黄</span>＝スーパーいいね</h4>
     <!-- スタンプを並べる -->
-    <img src="{% static 'ReactionButton/img/B_Pon_Uso.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/B_Pon_Uso.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/R_Kantaro_Sekaiichi.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/R_Kantaro_Sekaiichi.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/Y_Keisuke_collvoTteKakkoii.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/Y_Keisuke_collvoTteKakkoii.png' %}')"/>
+    <div class="contents-item1">
+      <img src="{% static 'ReactionButton/img/B_Pon_Uso.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/audio/UsoSE.wav' %}')"/>
+      <img src="{% static 'ReactionButton/img/R_Kantaro_Sekaiichi.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/seikaiichiSE.wav' %}')"/>
+      <img src="{% static 'ReactionButton/img/Y_Keisuke_collvoTteKakkoii.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/audio/collvodesuSE.wav' %}')"/>
+    </div>
+    <br><br><br><br><br>
 
-    <img src="{% static 'ReactionButton/img/B_Sugi_Sumanay.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/B_Sugi_Sumanay.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/R_Ryohey_Saikodesu.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/R_Ryohey_Saikodesu.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/Y_Pon_Omaedakeya.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/Y_Pon_Omaedakeya.png' %}')"/>
+    <div class="contents-item2">
+    <img src="{% static 'ReactionButton/img/B_Sugi_Sumanay.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/sumaneSE.wav' %}')"/>
+    <img src="{% static 'ReactionButton/img/R_Ryohey_Saikodesu.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/saikodesuSE.wav' %}')"/>
+    <img src="{% static 'ReactionButton/img/Y_Pon_Omaedakeya.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/OmaedakeyaSE.wav' %}')"/>
+    </div>
+    <br><br><br><br><br>
 
-    <img src="{% static 'ReactionButton/img/B_Yamachan.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/B_Yamachan.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/R_Pon_OmaehaSaikounoTomodachiya.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/R_Pon_OmaehaSaikounoTomodachiya.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/Y_Satoshi_Okarechau.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/Y_Satoshi_Okarechau.png' %}')"/>
+    <div class="contents-item3">
+    <img src="{% static 'ReactionButton/img/B_Yamachan.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/secondarySE.wav' %}')"/>
+    <img src="{% static 'ReactionButton/img/R_Pon_OmaehaSaikounoTomodachiya.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/SaikounoTomodachidaSE.wav' %}')"/>
+    <img src="{% static 'ReactionButton/img/Y_Satoshi_Okarechau.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/okasachauSE.wav' %}')"/>
+    </div>
+    <br><br><br><br><br>
 
-    <img src="{% static 'ReactionButton/img/B_Ryohey_chottomatte.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/B_Ryohey_chottomatte.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/R_Kantaro_Subarashii.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/R_Kantaro_Subarashii.png' %}')"/>
-    <img src="{% static 'ReactionButton/img/Y_Takashi_Tentikou.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/Y_Takashi_Tentikou.png' %}')"/>
+    <div class="contents-item4">
+    <img src="{% static 'ReactionButton/img/B_Ryohey_chottomatte.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/tyottomatteSE.wav' %}')"/>
+    <img src="{% static 'ReactionButton/img/R_Kantaro_Subarashii.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/SubarashiiSE.wav' %}')"/>
+    <img src="{% static 'ReactionButton/img/Y_Takashi_Tentikou.png' %}" width="100" height="100" onclick="sendReaction(2, '{% static 'ReactionButton/img/tentoikouSE.wav' %}')"/>
+    </div>
+    <br><br><br><br><br>
 
+    <div class="contents-item5">
     <img src="{% static 'ReactionButton/img/B_Takashi_Tyuushi.png' %}" width="100" height="100" onclick="sendReaction(0, '{% static 'ReactionButton/img/B_Takashi_Tyuushi.png' %}')"/>
     <img src="{% static 'ReactionButton/img/R_Ryohey_SaikodesuSuper.png' %}" width="100" height="100" onclick="sendReaction(1, '{% static 'ReactionButton/img/R_Ryohey_SaikodesuSuper.png' %}')"/>
+    </div>
 
   </div>
 
