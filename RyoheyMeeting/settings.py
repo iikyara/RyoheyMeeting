@@ -104,7 +104,7 @@ CHANNEL_LAYERS = {
 
 ASGI_APPLICATION = "RyoheyMeeting.asgi.application"
 
-#WSGI_APPLICATION = 'RyoheyMeeting.wsgi.application'
+# WSGI_APPLICATION = 'RyoheyMeeting.wsgi.application'
 
 
 # Database
