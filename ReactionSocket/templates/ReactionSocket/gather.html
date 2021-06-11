@@ -1,0 +1,24 @@
+{% extends 'home/layout.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block head_extends %}
+{{block.super}}
+  <link rel="stylesheet" href="{% sass_src 'ReactionSocket/scss/gather.scss' %}">
+{% endblock %}
+{% block title %}リアルタイムリアクションページ{% endblock %}
+{% block content %}
+{{block.super}}
+<div class="contents">
+  <div class="border-box">
+    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
+    <input id="chat-message-input" type="text" size="100"><br>
+    <input id="chat-message-submit" type="button" value="Send">
+  </div>
+</div>
+{{ conf_id|json_script:"conf_id" }}
+{% endblock %}
+
+{% block js_extends %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'ReactionSocket/js/gather.js' %}"></script>
+{% endblock %}
