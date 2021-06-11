@@ -25,6 +25,7 @@ urlpatterns = [
 
     # deal to projects
     path('ReactionButton/', include('ReactionButton.urls')),
+    path('ReactionSocket/', include('ReactionSocket.urls')),
 
     # for admin
     path('admin/', admin.site.urls),
