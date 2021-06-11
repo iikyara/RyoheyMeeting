@@ -12,6 +12,9 @@ chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
     //document.querySelector('#chat-log').value += ("destuser : " + data.user_id + "reaction_number" + data.reaction_number + '\n');
     document.querySelector('#chat-log').value += (data.message + '\n');
+
+    //ここで音を鳴らす
+    playAudio(data.message.reaction);
 };
 
 chatSocket.onclose = function(e) {
@@ -35,3 +38,33 @@ document.querySelector('#chat-message-submit').onclick = function(e) {
     }));
     messageInputDom.value = '';
 };
+
+//ロードしたやつを溜めておきたい
+var audio_dict = {};
+var currentSound = null;
+
+function playAudio(filename){
+  stopCurrentSound();
+  //ロード済み
+  if(audio_dict[filename]){
+    currentSound = audio_dict[filename];
+  }
+  //初回ロード
+  else{
+    var audio = document.createElement('audio');
+    audio.src = filename;
+    document.body.appendChild(audio);
+    audio_dict[filename] = audio;
+    currentSound = audio;
+  }
+  currentSound.play();
+}
+
+function stopCurrentSound()
+{
+	if( currentSound != null )
+	{
+		currentSound.pause();
+    currentSound.currentTime = 0;
+	}
+}
