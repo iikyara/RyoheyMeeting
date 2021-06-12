@@ -10,9 +10,13 @@
 {{block.super}}
 <div class="contents">
   <form method="post">
-    {{ form.as_p }}
+    ユーザ名：{{form.username}}
+    性：{{form.last_name}}
+    名：{{form.first_name}}
+    ニックネーム{{form.nickname}}
+    メールアドレス{{form.email}}
     {% csrf_token %}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-info mt-3">
   </form>
 </div>
 {% endblock %}

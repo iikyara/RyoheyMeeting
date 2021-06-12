@@ -13,39 +13,38 @@
 {% block body %}
 <div class="container">
   <h2>
-    遼　　平　　会 <br>
-    RyoheyMeeting
+    <img src="{% static 'home/img/icon_full.png' %}" alt="">
   </h2>
   <form method="post">
     {% csrf_token %}
     <div class="field">
-      <p class="field-name">ユーザー名</p>
+      <p class="field-name">User Name</p>
       <p class="error">{{form.username.errors.0}}</p>
       <i class="fas fa-user"></i>
       {{form.username}}
     </div>
     <div class="field">
-      <p class="field-name">パスワード</p>
+      <p class="field-name">Password</p>
       <p class="error">{{form.password.errors.0}}</p>
       <i class="fas fa-key"></i>
       {{form.password}}
     </div>
     {% if form.errors %}
     <p class="error">
-      ユーザー名 または パスワードが まちがっています。
+      ユーザー名またはパスワードが間違っています。
     </p>
     {% endif %}
-    <button type="submit">ログイン</button>
+    <button type="submit">LOGIN</button>
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   <div class="other">
     <div class="other-method">
-      <p>-- ほかの ほうほうで ログイン --</p>
-      <a href="{% url 'social:begin' 'google-oauth2' %}" class="method-google">Googleアカウントをつかう</a>
+      <p class="pt-3">-- Other method --</p>
+      <a href="{% url 'social:begin' 'google-oauth2' %}" class="method-google" style="pointer-events:none;">Use Google Account</a>
     </div>
     <div class="other-method">
-      <p>-- はじめて ごりようのかた --</p>
-      <a href="{% url 'signup' %}" class="method-signup">ユーザーとうろく</a>
+      <p class="pt-3">-- If you don't have any account --</p>
+      <a href="{% url 'signup' %}" class="method-signup">SIGN UP</a>
     </div>
   </div>
 </div>

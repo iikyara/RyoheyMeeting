@@ -13,4 +13,7 @@ urlpatterns = [
     path('entry/<int:conf_id>/', views.entry, name='entry'),
     path('getispresenter/<int:conf_id>/', views.getIsPresenter, name='getispresenter'),
     path('setpresenter/<int:conf_id>/<int:is_participate>/', views.setPresenter, name='setpresenter'),
+
+    #for test
+    path('testlinks/', views.viewTestLinks, name='testlinks'),
 ]

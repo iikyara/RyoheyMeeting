@@ -36,6 +36,6 @@ class Reaction(models.Model):
         for pre in pres:
             result.append({
                 'presenter' : pre,
-                'reactions' : cls.objects.filter(dest_user=pre.user, conference=conf).order_by('reaction_type')
+                'reactions' : cls.objects.filter(dest_user=pre.user, conference=conf).order_by('reaction_type').reverse()
             })
         return result

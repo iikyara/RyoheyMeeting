@@ -105,3 +105,11 @@ def setPresenter(request, conf_id, is_participate):
             'is_presenter' : len(pres) != 0
         }
     })
+
+@login_required
+def viewTestLinks(request):
+    conf_list = Conference.objects.order_by('event_date').reverse()
+    contents = {
+        'conf_list' : conf_list,
+    }
+    return render(request, 'home/testlinks.html', contents)

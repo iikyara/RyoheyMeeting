@@ -1,17 +1,22 @@
+{% load sass_tags %}
+{% load static %}
 <html>
 <head>
 <meta charset="utf-8">
 <title>タイトル</title>
+<link rel="icon" type="image/png" href="{% static 'RyoheyMeeting/icon/favicon.ico' %}">
 </head>
 <body>
+<a href="{% url 'home' %}">遼平会TOPへ戻る</a> <br>
+
 <h1>遼平会トップページ！</h1>
 
 <a href="{% url 'logout' %}">ログアウト</a> <br>
 
 {% for user in users %} <!-- この行は変えない -->
-{{user.name}}：
+{{user.user.user.get_called_name}}：
 <a href="/ReactionButton/ReactionButton?userid={{user.userid}}"> <!-- この行は変えない -->
-    {{user.name}}にリアクションする
+    {{user.user.user.get_called_name}}にリアクションする
 <a><br>
 {% empty %} <!-- この行は変えない -->
 ユーザが見つかりませんでした．

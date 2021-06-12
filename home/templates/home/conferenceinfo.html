@@ -8,6 +8,17 @@
 {% block title %}会議情報{% endblock %}
 {% block content %}
 {{block.super}}
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{conf.title}}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{conf.subtitle}}</h6>
+    <p class="card-text">
+      {{conf.description}}
+    </p>
+    <a href="{% url 'entry' conf.id %}" class="btn btn-primary">参加申し込み</a>
+  </div>
+</div>
+
 <div class="contents">
   <div class="border-box">
     開催日時：{{conf.event_date}} <br>

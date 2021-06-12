@@ -5,23 +5,43 @@
 <link rel="stylesheet" href="{% sass_src 'home/scss/layout.scss' %}">
 {% endblock %}
 {% block body %}
-<div class="cp_cont">
-  <div class="cp_offcm01">
-    <input type="checkbox" id="cp_toggle01">
-    <label for="cp_toggle01"><span></span></label>
-    <menu>
-      <ul>
-        <li> <a href="{% url 'usersetting' %}">ユーザー設定</a> </li>
-      </ul>
-    </menu>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand mt-2" href="{% url 'home' %}"><img src="{% static 'home/img/icon_header.png' %}" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'sitemap' %}">サイトマップ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'conferencelist' %}">会議一覧</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'usersetting' %}">ユーザ設定</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">ログイン</a>
+      </li>
+      {% endif %}
+    </ul>
   </div>
-  <div class="cp_contents">
-    <a href="{% url 'home' %}">HOMEへ移動</a> <br>
-    {% block content %}
-    {% endblock %}
-    <div class="footspace"></div>
-  </div>
+</nav>
+<div class="pt-5 p-2">
+  {% block content %}
+  {% endblock %}
 </div>
+
 {% endblock %}
 
 {% block js_extends %}

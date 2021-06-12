@@ -1,0 +1,66 @@
+{% extends 'home/layout.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block head_extends %}
+{{block.super}}
+  <link rel="stylesheet" href="{% sass_src 'home/scss/index.scss' %}">
+{% endblock %}
+{% block title %}HOME{% endblock %}
+{% block content %}
+{{block.super}}
+<div class="contents">
+
+  <div class="border-box">
+    {% if user.is_authenticated %}
+    {{user.username}}さん．こんにちは． <br>
+    <a href="{% url 'logout' %}">ログアウトする</a> <br>
+    {% else %}
+    あなたは誰でしょうか． <br>
+    <a href="{% url 'login' %}">ログインする</a> <br>
+    {% endif %}
+  </div>
+
+  <div class="border-box">
+    <a href="{% url 'sitemap' %}">サイトマップへ移動</a> <br>
+    <a href="{% url 'conferencelist' %}">会議リストへ移動</a> <br>
+    <a href="{% url 'usersetting' %}">ユーザ設定へ移動</a> <br>
+    <a href="{% url 'ReactionButton_test_scss' %}">ボタンテストページ</a> <br>
+    <a href="{% url 'ReactionButton_ReactionResult' 1 %}">リアクション結果ページ</a> <br>
+    <a href="{% url 'gather' 1 %}">リアルタイムリアクションテストページ</a>
+  </div>
+
+  <div class="border-box">
+    シーズン２第１回
+    <a href="{% url 'conferenceinfo' 1 %}">遼平会</a>
+    を準備中！ <br>
+    参加申し込み受付中→ <a href="{% url 'entry' 1 %}">申し込み</a> <br>
+    会議特設ページも準備中！→ <a href="{% url 'ReactionButton_home' %}">こちらからアクセス</a>
+  </div>
+
+  <div class="border-box">
+    会議一覧
+    <table class="history_table">
+      <tr>
+        <th>ひにち</th>
+        <th>タイトル</th>
+        <th>サブタイトル</th>
+      </tr>
+      {% for c in conf_list %}
+      <tr onclick="window.location.href = '{% url 'conferenceinfo' c.id %}';">
+        <td>{{c.event_date|date:"Y/m/j"}}</td>
+        <td>{{c.title}}</td>
+        <td>{{c.subtitle}}</td>
+      </tr>
+      {% empty %}
+        <p>履歴はありません</p>
+      {% endfor %}
+    </table>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block js_extends %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'home/js/index.js' %}"></script>
+{% endblock %}

@@ -17,6 +17,9 @@
     margin: 0;
     margin-bottom: 16px;
     text-align: center;
+    img{
+      width: 18rem;
+    }
   }
 
   $width: 17rem;
@@ -71,6 +74,8 @@
         font-size: 1rem;
         border: none;
         outline: none;
+        height: 1.2rem;
+        width: 0;
 
         flex:{
           grow: 1;
@@ -111,6 +116,15 @@
         style: none;
       }
       outline: none;
+      text-decoration: none;
+      text-align: center;
+
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      vertical-align: middle;
+      align-items: center;
     }
   }
 
@@ -160,6 +174,7 @@
         align-content: center;
 
         vertical-align: middle;
+        align-items: center;
 
         &:link{
           background-color: palettes(letter, red);
@@ -171,18 +186,18 @@
       }
 
       .method-google{
-        background-color: palettes(letter, red);
+        background-color: palettes(gray, light);
 
         &:active{
-          background-color: darken(palettes(letter, red), 10%);
+          background-color: darken(palettes(gray, light), 10%);
         }
 
         &:link{
-          background-color: palettes(letter, red);
+          background-color: palettes(gray, light);
         }
 
         &:visited{
-          background-color: palettes(letter, red);
+          background-color: palettes(gray, light);
         }
       }
 

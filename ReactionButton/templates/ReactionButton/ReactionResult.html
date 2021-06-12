@@ -8,16 +8,25 @@
 {% block title %}サイトマップ{% endblock %}
 {% block content %}
 {{block.super}}
-<div class="contents">
-  <div class="border-box">
-    {% for r in reactions %}
-      {{r.presenter.user}} <br>
-      {% for reaction in r.reactions %}
-        {{reaction}} <br>
-      {% endfor %}
-    {{r.reaction}} <br>
-    {% endfor %}
+<div class="h2 font-weight-bold">
+  リアクション結果
+</div>
+<div class="d-flex">
+  {% for r in reactions %}
+  <div class="card m-2">
+    <div class="card-body">
+      <h4 class="card-title font-weight-bold">
+        {{r.presenter.user.get_called_name}}
+      </h4>
+      <p class="card-text">
+        {% for reaction in r.reactions %}
+          {{reaction.reaction_type.description}} <br>
+          {{reaction.count}} <br>
+        {% endfor %}
+      </p>
+    </div>
   </div>
+  {% endfor %}
 </div>
 {% endblock %}
 

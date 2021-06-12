@@ -8,20 +8,27 @@
 {% block title %}サイトマップ{% endblock %}
 {% block content %}
 {{block.super}}
-<div class="contents">
-  <div class="border-box">
-    {{conf.title}}参加フォーム
+<div class="h4 d-flex flex-row justify-content-left flex-wrap font-weight-bold">
+  <div class="">
+    {{conf.title}}
   </div>
+  <div class="">
+    参加フォーム
+  </div>
+</div>
 
-  <div class="border-box" id="participate">
+<div class="" id="participate">
+  <div class="mt-3">
     {{user.username}}さんはまだ参加していません． <br>
-    <button type="button" name="button" onclick="participate(true)">参加する</button>
   </div>
+  <button type="button" name="button" onclick="participate(true)" class="btn btn-info m-3">参加する</button>
+</div>
 
-  <div class="border-box" id="not_participate">
+<div class="" id="not_participate">
+  <div class="mt-3">
     {{user.username}}さんは参加中です！ <br>
-    <button type="button" name="button" onclick="participate(false)">参加を取り消す</button>
   </div>
+  <button type="button" name="button" onclick="participate(false)" class="btn btn-danger m-3">参加を取り消す</button>
 </div>
 
 <input type="hidden" id="conference_id" value="{{conf.id}}">

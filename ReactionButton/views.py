@@ -10,6 +10,7 @@ def index(request):
     users = []
     for p in pres:
         users.append({
+            'user' : p,
             'name' : p.user.get_full_name(),
             'nickname' : p.user.nickname,
             'userid' : p.id
@@ -27,6 +28,7 @@ def view_reactionbutton(request):
             return redirect('ReactionButton_home')
         pre = pre[0]
         contents = {
+            'dest_user' : pre.user,
             'name' : pre.user.get_full_name(),
             'nickname' : pre.user.nickname,
             'userid' : pre.id
