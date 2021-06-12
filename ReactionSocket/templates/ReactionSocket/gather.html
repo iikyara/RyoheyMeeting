@@ -8,16 +8,19 @@
 {% block title %}リアルタイムリアクションページ{% endblock %}
 {% block content %}
 {{block.super}}
-<div class="contents">
-  <div class="border-box">
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
-  </div>
-
-  <div class="border-box">
-    <button type="button" id="audio_setup" onclick="playAudio('{% static 'ReactionButton/audio/UsoSE.wav' %}');">setup</button>
-  </div>
+<div class="h4">
+  リアルタイムリアクション
+</div>
+<div class="mt-3">
+  他の人がボタンを押すと音が鳴ります．
+</div>
+<div class="btn btn-info mt-3" onclick="playAudio('{% static 'ReactionButton/audio/UsoSE.wav' %}');">
+  音量テスト！
+</div>
+<br>
+<div class="mt-3">
+  <label for="customRange1">音量調節</label>
+  <input type="range" class="custom-range" id="customRange1"  min="0" max="1" step="0.001" value=1>
 </div>
 {{ conf_id|json_script:"conf_id" }}
 {% endblock %}

@@ -12,39 +12,41 @@
 
 {% block body %}
 <div class="container">
-  <h2>ユーザーとうろく</h2>
+  <h2>
+    <img src="{% static 'home/img/icon_full.png' %}" alt="">
+  </h2>
   <form method="POST" action="{% url 'signup' %}">
     {% csrf_token %}
     <div class="field">
-      <p class="field-name">ユーザー名</p>
+      <p class="field-name">User Name</p>
       <p class="error">{{form.username.errors.0}}</p>
       <i class="fas fa-user"></i>
       {{form.username}}
     </div>
     <div class="field">
-      <p class="field-name">パスワード</p>
+      <p class="field-name">Password</p>
       <p class="error">{{form.password1.errors.0}}</p>
       <i class="fas fa-key"></i>
       {{ form.password1 }}
     </div>
     <div class="field">
-      <p class="field-name">パスワード（かくにん）</p>
+      <p class="field-name">Password (again)</p>
       <p class="error">{{form.password2.errors.0}}</p>
       <i class="fas fa-key"></i>
       {{ form.password2 }}
     </div>
     <div class="field">
-      <p class="field-name">ニックネーム</p>
+      <p class="field-name">Your Nickname</p>
       <p class="error">{{form.nickname.errors.0}}</p>
       <i class="far fa-smile"></i>
       {{ form.nickname }}
     </div>
-    <button type = "submit">とうろく</button>
+    <button type = "submit">Sign UP</button>
   </form>
   <div class="other">
     <div class="other-method">
-      <p>-- すでに とうろくずみの ばあい --</p>
-      <a href="{% url 'login' %}" class="method-signup">ログイン</a>
+      <p class="pt-3">-- If you have account --</p>
+      <a href="{% url 'login' %}" class="method-signup">LOGIN</a>
     </div>
   </div>
 </div>

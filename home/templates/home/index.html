@@ -8,55 +8,39 @@
 {% block title %}HOME{% endblock %}
 {% block content %}
 {{block.super}}
-<div class="contents">
 
-  <div class="border-box">
+<div class="text-center">
+  <div class="font-weight-lighter">
     {% if user.is_authenticated %}
-    {{user.username}}さん．こんにちは． <br>
+    {{user.username}}さん。こんにちは。 <br>
     <a href="{% url 'logout' %}">ログアウトする</a> <br>
     {% else %}
-    あなたは誰でしょうか． <br>
+    まずはログインしましょう。 <br>
     <a href="{% url 'login' %}">ログインする</a> <br>
     {% endif %}
   </div>
+  <div class="mt-2">
+    <div class="title d-flex flex-row justify-content-center flex-wrap font-weight-bold">
+      <div class="">
+        GEN.2 第１回
+      </div>
+      <div class="">
+        <a href="{% url 'conferenceinfo' 1 %}">遼平会</a>
+        を開催！
+      </div>
+    </div>
 
-  <div class="border-box">
-    <a href="{% url 'sitemap' %}">サイトマップへ移動</a> <br>
-    <a href="{% url 'conferencelist' %}">会議リストへ移動</a> <br>
-    <a href="{% url 'usersetting' %}">ユーザ設定へ移動</a> <br>
-    <a href="{% url 'ReactionButton_test_scss' %}">ボタンテストページ</a> <br>
-    <a href="{% url 'ReactionButton_ReactionResult' 1 %}">リアクション結果ページ</a> <br>
-    <a href="{% url 'gather' 1 %}">リアルタイムリアクションテストページ</a>
+    <div class="mt-3 mb-2">
+      参加申し込みをして、当日発表する準備をしよう！
+    </div>
+    <a href="{% url 'entry' 1 %}" class="btn btn-info">申し込み</a>
+
+    <div class="mt-3 mb-2">
+      会議特設ページにアクセスしよう！
+    </div>
+
+    <a href ="{% url 'ReactionButton_home' %}" class="btn btn-info">こちらから</a>
   </div>
-
-  <div class="border-box">
-    シーズン２第１回
-    <a href="{% url 'conferenceinfo' 1 %}">遼平会</a>
-    を準備中！ <br>
-    参加申し込み受付中→ <a href="{% url 'entry' 1 %}">申し込み</a> <br>
-    会議特設ページも準備中！→ <a href="{% url 'ReactionButton_home' %}">こちらからアクセス</a>
-  </div>
-
-  <div class="border-box">
-    会議一覧
-    <table class="history_table">
-      <tr>
-        <th>ひにち</th>
-        <th>タイトル</th>
-        <th>サブタイトル</th>
-      </tr>
-      {% for c in conf_list %}
-      <tr onclick="window.location.href = '{% url 'conferenceinfo' c.id %}';">
-        <td>{{c.event_date|date:"Y/m/j"}}</td>
-        <td>{{c.title}}</td>
-        <td>{{c.subtitle}}</td>
-      </tr>
-      {% empty %}
-        <p>履歴はありません</p>
-      {% endfor %}
-    </table>
-  </div>
-
 </div>
 {% endblock %}
 

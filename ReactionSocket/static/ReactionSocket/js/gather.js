@@ -11,7 +11,7 @@ const chatSocket = new WebSocket(
 chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
     //document.querySelector('#chat-log').value += ("destuser : " + data.user_id + "reaction_number" + data.reaction_number + '\n');
-    document.querySelector('#chat-log').value += (data.message + '\n');
+    //document.querySelector('#chat-log').value += (data.message + '\n');
 
     //ここで音を鳴らす
     playAudio(data.message.reaction);
@@ -21,23 +21,23 @@ chatSocket.onclose = function(e) {
     console.error('Chat socket closed unexpectedly');
 };
 
-document.querySelector('#chat-message-input').focus();
-document.querySelector('#chat-message-input').onkeyup = function(e) {
-    if (e.keyCode === 13) {  // enter, return
-        document.querySelector('#chat-message-submit').click();
-    }
-};
+// document.querySelector('#chat-message-input').focus();
+// document.querySelector('#chat-message-input').onkeyup = function(e) {
+//     if (e.keyCode === 13) {  // enter, return
+//         document.querySelector('#chat-message-submit').click();
+//     }
+// };
 
-document.querySelector('#chat-message-submit').onclick = function(e) {
-    const messageInputDom = document.querySelector('#chat-message-input');
-    const message = messageInputDom.value;
-    chatSocket.send(JSON.stringify({
-        'message': message,
-        // 'user_id': 0,
-        // 'reaction_number': 0
-    }));
-    messageInputDom.value = '';
-};
+// document.querySelector('#chat-message-submit').onclick = function(e) {
+//     const messageInputDom = document.querySelector('#chat-message-input');
+//     const message = messageInputDom.value;
+//     chatSocket.send(JSON.stringify({
+//         'message': message,
+//         // 'user_id': 0,
+//         // 'reaction_number': 0
+//     }));
+//     messageInputDom.value = '';
+// };
 
 //ロードしたやつを溜めておきたい
 var audio_dict = {};
@@ -57,6 +57,8 @@ function playAudio(filename){
     audio_dict[filename] = audio;
     currentSound = audio;
   }
+  console.log(document.getElementById('customRange1').value);
+  currentSound.volume = document.getElementById('customRange1').value;
   currentSound.play();
 }
 
@@ -67,4 +69,21 @@ function stopCurrentSound()
 		currentSound.pause();
     currentSound.currentTime = 0;
 	}
+}
+
+function Volume(flag) {
+  if (0 < flag) {
+    if (0.9 < audioElem.volume) {
+      audioElem.volume = 1;
+    } else {
+      audioElem.volume += 0.1;
+    }
+  } else {
+    if (audioElem.volume < 0.1) {
+      audioElem.volume = 0;
+    }
+    else {
+      audioElem.volume -= 0.1;
+    }
+  }
 }

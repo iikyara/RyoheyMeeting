@@ -8,26 +8,21 @@
 {% block title %}会議リスト{% endblock %}
 {% block content %}
 {{block.super}}
-<div class="contents">
-  <div class="border-box">
-    会議一覧
-    <table class="history_table">
-      <tr>
-        <th>ひにち</th>
-        <th>タイトル</th>
-        <th>サブタイトル</th>
-      </tr>
-      {% for c in conf_list %}
-      <tr onclick="window.location.href = '{% url 'conferenceinfo' c.id %}';">
-        <td>{{c.event_date|date:"Y/m/j"}}</td>
-        <td>{{c.title}}</td>
-        <td>{{c.subtitle}}</td>
-      </tr>
-      {% empty %}
-        <p>履歴はありません</p>
-      {% endfor %}
-    </table>
+<div class="">
+  {% for c in conf_list %}
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">{{c.title}}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{c.subtitle}}</h6>
+      <p class="card-text">
+        {{c.description}}
+      </p>
+      <a href="{% url 'entry' c.id %}" class="btn btn-primary">参加申し込み</a>
+    </div>
   </div>
+  {% empty %}
+    <p>会議が存在しません。</p>
+  {% endfor %}
 </div>
 {% endblock %}
 

@@ -5,6 +5,7 @@
  <head>
   <meta charset="utf-8">
   <title>遼平会リアクションボタン</title>
+  <link rel="icon" type="image/png" href="{% static 'RyoheyMeeting/icon/favicon.ico' %}">
   <meta name="description" content="リアクションボタンのページ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% sass_src 'ReactionButton/scss/style.scss' %}">
@@ -16,11 +17,13 @@
 
  <body>
   <div class="main">
+    <a href="{% url 'ReactionButton_home' %}">特設ページトップへ戻る</a> <br>
     <h1>リアクションボタン</h1>
   </div>
 
   <div class="contents">
     <h3 class="section-title">選べるリアクション14種類！</h3>
+    <h3>{{dest_user.get_called_name}}さんへリアクションを送ろう！</h3>
     <h5><span class="blue">青</span>=ちょいまち　<span class="red">赤</span>＝いいね　<span class="yellow">黄</span>＝スーパーいいね</h4>
     <!-- スタンプを並べる -->
     <div class="contents-item1">
