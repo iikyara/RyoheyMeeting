@@ -186,18 +186,18 @@
       }
 
       .method-google{
-        background-color: palettes(gray, light);
+        background-color: palettes(letter, red);
 
         &:active{
-          background-color: darken(palettes(gray, light), 10%);
+          background-color: darken(palettes(letter, red), 10%);
         }
 
         &:link{
-          background-color: palettes(gray, light);
+          background-color: palettes(letter, red);
         }
 
         &:visited{
-          background-color: palettes(gray, light);
+          background-color: palettes(letter, red);
         }
       }
 
