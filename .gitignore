@@ -8,3 +8,4 @@ db.sqlite3
 *.org
 .DS_Store
 local_settings.py
+.env
