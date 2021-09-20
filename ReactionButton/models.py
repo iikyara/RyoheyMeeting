@@ -34,8 +34,18 @@ class Reaction(models.Model):
         result = []
         pres = Presenter.objects.filter(conference=conf).order_by('user')
         for pre in pres:
+            reacs = []
+            reac_raw = cls.objects.filter(dest_user=pre.user, conference=conf)
+            sum = 0
+            for rt in ReactionType.objects.all().order_by("number"):
+                r = reac_raw.filter(reaction_type=rt).first()
+                reacs.append(r)
+                if r != None:
+                    sum += r.count
             result.append({
                 'presenter' : pre,
-                'reactions' : cls.objects.filter(dest_user=pre.user, conference=conf).order_by('reaction_type').reverse()
+                'reactions' : reacs,
+                'sum' : sum
             })
+        result.sort(key=lambda x: x['sum'], reverse=True)
         return result

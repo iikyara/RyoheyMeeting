@@ -6,7 +6,8 @@ from home.models import *
 
 @login_required
 def index(request):
-    pres = Presenter.objects.filter()
+    conf = Conference.getCurrentConference()
+    pres = Presenter.objects.filter(conference=conf)
     users = []
     for p in pres:
         users.append({
@@ -23,7 +24,8 @@ def view_reactionbutton(request):
     if "userid" in request.GET:
         contents = {}
         userid = int(request.GET["userid"])
-        pre = Presenter.objects.filter(id=userid)
+        conf = Conference.getCurrentConference()
+        pre = Presenter.objects.filter(id=userid, conference=conf)
         if len(pre)==0:
             return redirect('ReactionButton_home')
         pre = pre[0]
@@ -44,13 +46,15 @@ def push_reaction(request):
         reaction = int(request.GET['reaction'])
         userid = int(request.GET['userid'])
         count = int(request.GET['count'])
-        pre = Presenter.objects.filter(id=userid).first()
-        conf = Conference.getCurrentConference().first()
+        conf = Conference.getCurrentConference()
+        pre = Presenter.objects.filter(id=userid, conference=conf).first()
+        if pre.user.id == request.user.id:
+            print("Don't be reaction to self.")
+            return HttpResponse(status=201)
         reacT = ReactionType.objects.filter(number=reaction).first()
         if not pre or not conf or not reacT:
             return HttpResponse(status=400)
         reac_cnt = Reaction.objects.filter(reaction_type=reacT, dest_user=pre.user, conference=conf).first()
-        print(reac_cnt == None)
         if reac_cnt:
             reac_cnt.count += count
             reac_cnt.save()
@@ -69,7 +73,7 @@ def test_scss(request):
 
 @login_required
 def view_reactionresult(request, conf_id):
-    conf = Conference.getConferenceById(conf_id).first()
+    conf = Conference.getConferenceById(conf_id)
     if not conf:
         return HttpResponse(status=404)
     #reac_cnt = Reaction.objects.filter(conference=conf).order_by('dest_user')
@@ -77,5 +81,6 @@ def view_reactionresult(request, conf_id):
     contents = {
         "conf" : conf,
         "reactions" : reac_cnt,
+        "reaction_type" : ReactionType.objects.all().order_by("number")
     }
     return render(request, 'ReactionButton/ReactionResult.html', contents)
