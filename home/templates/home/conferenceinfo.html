@@ -12,6 +12,7 @@
   <div class="card-body">
     <h4 class="card-title">{{conf.title}}</h4>
     <h6 class="card-subtitle mb-2 text-muted">{{conf.subtitle}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{conf.event_date}}開催</h6>
     <p class="card-text">
       {{conf.description}}
     </p>
@@ -19,7 +20,7 @@
   </div>
 </div>
 
-<div class="contents">
+<!-- <div class="contents">
   <div class="border-box">
     開催日時：{{conf.event_date}} <br>
     会議名：{{conf.title}} <br>
@@ -27,7 +28,7 @@
     参加申込： <a href="{% url 'entry' conf.id %}">ここから</a> <br>
     詳細：{{conf.description}}
   </div>
-</div>
+</div> -->
 {% endblock %}
 
 {% block js_extends %}

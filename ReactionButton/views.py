@@ -45,7 +45,7 @@ def push_reaction(request):
         userid = int(request.GET['userid'])
         count = int(request.GET['count'])
         pre = Presenter.objects.filter(id=userid).first()
-        conf = Conference.objects.filter(generation=2, number=1).first()
+        conf = Conference.getCurrentConference().first()
         reacT = ReactionType.objects.filter(number=reaction).first()
         if not pre or not conf or not reacT:
             return HttpResponse(status=400)
@@ -69,7 +69,7 @@ def test_scss(request):
 
 @login_required
 def view_reactionresult(request, conf_id):
-    conf = Conference.objects.filter(id = conf_id).first()
+    conf = Conference.getConferenceById(conf_id).first()
     if not conf:
         return HttpResponse(status=404)
     #reac_cnt = Reaction.objects.filter(conference=conf).order_by('dest_user')
