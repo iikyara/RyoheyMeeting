@@ -21,6 +21,20 @@ class Conference(models.Model):
     def title(self):
         return "シーズン%d 第%d回 遼平会" % (self.generation, self.number)
 
+    @classmethod
+    def getConferenceById(cls, conf_id):
+        if conf_id == -1:
+            return cls.getCurrentConference()
+        return cls.objects.filter(id=conf_id).first()
+
+    @classmethod
+    def getCurrentConference(cls):
+        conf = Variable.get().current_conference
+        conf_id = conf.id
+        print(conf)
+        print(conf_id)
+        return cls.objects.filter(id=conf_id).first()
+
 class Presenter(models.Model):
     user = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE
@@ -31,3 +45,15 @@ class Presenter(models.Model):
 
     def __str__(self):
         return str(self.user) + " : " + str(self.conference)
+
+class Variable(models.Model):
+    current_conference = models.ForeignKey(
+        Conference, on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return str(self.current_conference)
+
+    @classmethod
+    def get(self):
+        return Variable.objects.first()
