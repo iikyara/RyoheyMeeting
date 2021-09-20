@@ -31,8 +31,6 @@ class Conference(models.Model):
     def getCurrentConference(cls):
         conf = Variable.get().current_conference
         conf_id = conf.id
-        print(conf)
-        print(conf_id)
         return cls.objects.filter(id=conf_id).first()
 
 class Presenter(models.Model):

@@ -9,10 +9,39 @@
 {% block content %}
 {{block.super}}
 <div class="h2 font-weight-bold">
-  リアクション結果
+  {{conf}}のリアクション結果
 </div>
 <div class="d-flex">
-  {% for r in reactions %}
+  <table class="table table-striped">
+    <thead>
+      <th scope="col" class="text-center">#</th>
+      <th scope="col" class="text-center">プレゼンター</th>
+      {% for rt in reaction_type %}
+      <th scope="col" class="text-center">{{rt.description}}</th>
+      {% endfor %}
+      <th scope="col" class="text-center">合計</th>
+    </thead>
+    <tbody>
+      {% for r in reactions %}
+      <tr>
+        <th scope="row" class="text-center">{{forloop.counter}}</th>
+        <td class="text-center">{{r.presenter.user.get_called_name}}</td>
+        {% for reaction in r.reactions %}
+        <td class="text-center">
+          {% if reaction is not None %}
+          {{reaction.count}}
+          {% else %}
+          0
+          {% endif %}
+        </td>
+        {% endfor %}
+        <td class="text-center">{{r.sum}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- {% for r in reactions %}
   <div class="card m-2">
     <div class="card-body">
       <h4 class="card-title font-weight-bold">
@@ -26,7 +55,7 @@
       </p>
     </div>
   </div>
-  {% endfor %}
+  {% endfor %} -->
 </div>
 {% endblock %}
 

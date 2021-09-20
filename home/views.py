@@ -13,7 +13,6 @@ def index(request):
         'current_conf' : Conference.getCurrentConference(),
         'conf_list' : conf_list,
     }
-    print(contents)
     return render(request, 'home/index.html', contents)
 
 def sitemap(request):
