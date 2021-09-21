@@ -1,1 +1,97 @@
 @import 'home/scss/utils.scss';
+
+.ryoheykai{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:100%;
+
+  img{
+    width: 100%;
+    height: auto;
+    opacity: .3;
+  }
+}
+
+.reaction_img{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: 80%;
+  margin: auto;
+  animation: reactionAnim 3s ease 0s 1 alternate none running;
+  &.standby{
+    display: none;
+  }
+}
+
+@keyframes reactionAnim {
+  0%{
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  33%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  66%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  //height: 120px;
+  background-color: #f5f5f5;
+
+  .container{
+    padding: 20px 20px;
+    display: flex;
+    flex:{
+      direction: row;
+      wrap: wrap;
+    }
+    justify-content: center;
+    align:{
+      items: center;
+      content: center;
+    }
+
+    label{
+      margin: auto;
+      flex:{
+        grow: 0;
+        shrink: 0;
+      }
+    }
+    input{
+      margin: 0 10px 0;
+      width: 50%;
+      flex:{
+        grow: 1;
+        shrink: 1;
+      }
+      min-width: 100px;
+    }
+    div{
+      margin: auto;
+      flex:{
+        grow: 0;
+        shrink: 0;
+      }
+    }
+  }
+}
