@@ -10,37 +10,20 @@ const chatSocket = new WebSocket(
 
 chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
-    //document.querySelector('#chat-log').value += ("destuser : " + data.user_id + "reaction_number" + data.reaction_number + '\n');
-    //document.querySelector('#chat-log').value += (data.message + '\n');
+    console.log(data);
 
     //ここで音を鳴らす
     playAudio(data.message.reaction);
+    moveImage(data.message.reaction_img);
 };
 
 chatSocket.onclose = function(e) {
     console.error('Chat socket closed unexpectedly');
 };
 
-// document.querySelector('#chat-message-input').focus();
-// document.querySelector('#chat-message-input').onkeyup = function(e) {
-//     if (e.keyCode === 13) {  // enter, return
-//         document.querySelector('#chat-message-submit').click();
-//     }
-// };
-
-// document.querySelector('#chat-message-submit').onclick = function(e) {
-//     const messageInputDom = document.querySelector('#chat-message-input');
-//     const message = messageInputDom.value;
-//     chatSocket.send(JSON.stringify({
-//         'message': message,
-//         // 'user_id': 0,
-//         // 'reaction_number': 0
-//     }));
-//     messageInputDom.value = '';
-// };
-
 //ロードしたやつを溜めておきたい
 var audio_dict = {};
+var img_dict = {};
 var currentSound = null;
 
 function playAudio(filename){
@@ -57,7 +40,7 @@ function playAudio(filename){
     audio_dict[filename] = audio;
     currentSound = audio;
   }
-  console.log(document.getElementById('customRange1').value);
+  //console.log(document.getElementById('customRange1').value);
   currentSound.volume = document.getElementById('customRange1').value;
   currentSound.play();
 }
@@ -69,6 +52,33 @@ function stopCurrentSound()
 		currentSound.pause();
     currentSound.currentTime = 0;
 	}
+}
+
+function moveImage(filename){
+  console.log(filename);
+  target = null;
+  if(img_dict[filename]){
+    target = img_dict[filename].cloneNode(true);
+  }
+  else{
+    var image = document.createElement('img');
+    image.src = filename;
+    img_dict[filename] = image;
+    $(image).addClass("reaction_img");
+    $(image).addClass("standby");
+
+    target = image.cloneNode(true);
+  }
+
+  //毎回一番下に追加（元の要素は自動で消える）
+  document.body.appendChild(target);
+
+  $(target).removeClass("standby");
+  window.setTimeout(function(target){
+    console.log(target);
+    $(target).addClass("standby");
+    target.remove();
+  }.bind(undefined, target), 2990);
 }
 
 function Volume(flag) {
